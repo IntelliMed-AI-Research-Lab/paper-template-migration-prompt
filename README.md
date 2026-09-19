@@ -1,38 +1,21 @@
-I need to convert my paper from one LaTeX template/journal format into another.
+# Part 1: teach the AI the target template
+I am going to convert my research paper into a journal/conference LaTeX template. This message is only about the TEMPLATE. Do NOT convert anything yet; my paper comes in the next message.
 
-I am attaching two files:
-1. My current paper's full .tex file, written in the ---------- [current template/journal name, e.g. "PLOS One"] format.
-2. The target template's .tex file (currently containing placeholder/dummy content) for ---------- [target template/journal name, e.g. "IEEE Access"], which I need to convert my paper into.
+Attached: the target template (zip).
 
-Please do the following:
+Do this:
+1. List the zip contents (don't blindly extract everything). Identify: main .tex, document class file, bibliography style files (.bst), sample .bib, sample figures, user manual.
+2. Read the main .tex fully and build a "template profile":
+   - documentclass and its options (which are valid, which are just leftovers)
+   - single- or double-column, text width/height, page size
+   - front-matter macros: title, authors (with corresponding-author marker), affiliations, emails, abstract, keywords, any extra required fields
+   - required or forbidden things stated in comments (e.g. "no \input", "single .tex file", figure format rules)
+   - bibliography style and how citations are made
+   - how the class redefines table/figure/float environments (check the .cls for wrappers such as threeparttable that can break \resizebox/\scalebox)
+   - which declaration sections it expects (funding, ethics, competing interests, data availability, author contributions, acknowledgements)
+   - packages already loaded
+3. Identify what in the template is SAMPLE CONTENT (placeholder title, authors, abstract, sections, figures, references) that must be removed later.
+4. Compile the template untouched (pdflatex/bibtex cycle) and record its baseline warnings, so we know which are pre-existing.
+5. Reply with a SHORT profile (bullet points) plus a list of risks or quirks I should know about for the conversion. No conversion yet, no long explanations. Then wait for my next message.
 
-1. First, read and fully understand my current paper from the attached file — all sections, tables, figures, equations, algorithms, and citations — before making any changes.
-
-2. Take the exact preamble, package imports, and structural conventions (title/author/abstract commands, section formatting, bibliography style, etc.) from the target template file, and port my paper's full content into that structure.
-
-3. Preserve all of the following exactly, without summarizing, shortening, or paraphrasing:
-   - All section and subsection content, in the same order
-   - All tables, with their data intact
-   - All figures and their \includegraphics calls, captions, and labels
-   - All equations and their numbering
-   - All algorithms/pseudocode blocks
-   - All in-text citations (\cite{} keys unchanged)
-   - Any tracked-edit formatting (e.g. \textcolor{blue}{...}) I have in the current draft — carry it over as-is unless I say otherwise
-
-4. Adapt only what differs structurally between the two formats, such as:
-   - Section header commands (e.g. \section* → \section, or vice versa)
-   - Abstract/keywords environment syntax
-   - Author/affiliation block formatting
-   - Bibliography style and \bibliography{} command (tell me if the .bib filename needs to change or be recreated)
-   - Any front-matter-specific commands unique to one template that don't exist in the other (tell me explicitly if you drop a section like this, and why)
-
-5. Do NOT introduce any new claims, reword scientific content, or "fix" anything unless I've separately asked you to — this is a structural port only, not a content edit pass.
-
-6. After conversion, give me:
-   - The complete converted .tex file, ready to paste directly into the new template's main.tex
-   - A short list of anything I need to do manually afterward (e.g. renaming/uploading a .bib file, re-uploading figure files, installing a missing package, class file requirements)
-   - A short list of anything you dropped, merged, or restructured because it had no equivalent in the target template, so I know to check it
-
-Target template name: ----------
-Current format name: ----------
-Any special instructions (e.g. "keep tracked-changes coloring", "strip all colors for final submission", "use this specific bibliography filename: ----------"): ----------
+Keep this profile in mind; the next message refers to it.
